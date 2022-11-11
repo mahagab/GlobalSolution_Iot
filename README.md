@@ -10,6 +10,8 @@ GUSTAVO DALBERTO MULLER RM: 84111<br/><br/>
 LUCAS RIBEIRO LAPINHA RM: 88257<br/><br/>
 PAULO GURGEL TUDINI RM: 88960</h3>
 
+<p>Link do tinkercad: </p>
 <p>https://www.tinkercad.com/things/4EWcULTuVBN-copy-of-n-funciona/editel?sharecode=XFBxNm3uwBxjHikTioSP2i2_v-r7N286EaoXCgSDUl0</p>
 
+<p>Link do vídeo do youtube: </p>
 <p>https://youtu.be/B7QXqFYAgu8</p>
