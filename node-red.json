@@ -1,0 +1,213 @@
+[
+    {
+        "id": "17eb0b82b332355b",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "abfbb6b9.75c388",
+        "type": "inject",
+        "z": "17eb0b82b332355b",
+        "name": "SIMULANDO INPUT ARDUINO",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "X",
+        "payloadType": "str",
+        "x": 210,
+        "y": 140,
+        "wires": [
+            [
+                "25a27b78b95a8cf3",
+                "ef4075f7b8a4e9e6"
+            ]
+        ]
+    },
+    {
+        "id": "25a27b78b95a8cf3",
+        "type": "function",
+        "z": "17eb0b82b332355b",
+        "name": "Função identifica Vaga",
+        "func": "if (msg.payload == \"A\"){\n    msg.payload = \"somente a vaga A está vazia\"\n} else if (msg.payload == \"AB\") {\n    msg.payload = \"As vagas A e B estão vazias\"\n} else if (msg.payload == \"B\") {\n    msg.payload = \"somente a vaga B está vazia\"\n} else {\n    msg.payload = \"Nenhuma vaga está disponível no momento\"\n}\n\nreturn msg\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "4c628a662e7a45fb",
+                "60da21710ad49ef4"
+            ]
+        ]
+    },
+    {
+        "id": "d5169d508ebe6ea2",
+        "type": "mqtt in",
+        "z": "17eb0b82b332355b",
+        "name": "",
+        "topic": "identifica/vaga",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "cffc2281e3d26391",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 750,
+        "y": 380,
+        "wires": [
+            [
+                "0dfbfe481a607a8b"
+            ]
+        ]
+    },
+    {
+        "id": "4c628a662e7a45fb",
+        "type": "mqtt out",
+        "z": "17eb0b82b332355b",
+        "name": "",
+        "topic": "identifica/vaga",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "cffc2281e3d26391",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ef4075f7b8a4e9e6",
+        "type": "debug",
+        "z": "17eb0b82b332355b",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "60da21710ad49ef4",
+        "type": "debug",
+        "z": "17eb0b82b332355b",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "0dfbfe481a607a8b",
+        "type": "ui_text",
+        "z": "17eb0b82b332355b",
+        "group": "d9d19a22d7ab1675",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 930,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "237485ddebe98b92",
+        "type": "aedes broker",
+        "z": "17eb0b82b332355b",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cffc2281e3d26391",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d9d19a22d7ab1675",
+        "type": "ui_group",
+        "name": "Dashboard Vaga",
+        "tab": "14a0964fb79d7a91",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "14a0964fb79d7a91",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
